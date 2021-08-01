@@ -20,14 +20,9 @@ exports.max = function max(array = []) {
 }
 
 exports.avg = function avg(array = [0]) {
+  if (array == undefined || array.length == 0) return 0;
   let avg = array.reduce((a, b) => a + b, 0);
-  if (isFinite(avg)) { 
-      return avg / array.length;
-   }
-  else {
-      return 0
-  } 
-
+  return avg / array.length;
 }
 
 
