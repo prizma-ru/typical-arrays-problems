@@ -1,7 +1,7 @@
 
 exports.min = function min(array = []) {
   let min = Math.min(...array);
-  if (min != Infinity) {
+  if (isFinite(min)) {
       return min
   }
   else {
@@ -11,7 +11,7 @@ exports.min = function min(array = []) {
 
 exports.max = function max(array = []) {
   let max = Math.max(...array);
-  if (max != Infinity) {
+  if (isFinite(max)) {
       return max
   }
   else {
@@ -19,13 +19,15 @@ exports.max = function max(array = []) {
   }
 }
 
-exports.avg = function avg(array = []) {       
-  if (array != Infinity) {
-      return array.reduce((a, b) => a + b)/array.length;
-  }
+exports.avg = function avg(array = [0]) {
+  let avg = array.reduce((a, b) => a + b, 0);
+  if (isFinite(avg)) { 
+      return avg / array.length;
+   }
   else {
       return 0
-  }    
+  } 
+
 }
 
 
